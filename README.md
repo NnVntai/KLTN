@@ -135,7 +135,6 @@ thực hiện `title` là giá trị hiển thị ra ngoài .
 ***
 theo mô hình MVC
 
-![Untitled Diagram (1)](https://user-images.githubusercontent.com/111570888/195147107-d0b96e7f-5086-4bfa-91a2-4dfec54a1b53.jpg)
 
 JSONWEBTOKEN
 
