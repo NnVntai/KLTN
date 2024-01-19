@@ -1,0 +1,117 @@
+<div *ngIf="exittable" class="tableadd">
+    <div class="outtable">
+        <div class="table">
+            <div class="headertable">
+                <h1 *ngIf="iduser==0">Thêm tài khoản mới  <button (click)="outtable();">X</button></h1>
+                <h1 *ngIf="iduser!=0">Cập nhật tài khoản  <button (click)="outtable();">X</button></h1>
+            </div>
+            <table class="bodytable">
+                <tr>
+                    <th >Họ tên :</th>
+                    <td width="60%"><input type="text"  value="" [(ngModel)]="name"   placeholder="Vui lòng nhập họ tên" (ngModelChange)="namec=checkerror(name,namec);buttonc=checkbutton(buttonc);"></td>
+                    <td width="10%" class="errortable" >    
+                        <fa-icon *ngIf="namec==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="namec==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tên đăng nhập:</th>
+                    <td><input type="text" value="" [(ngModel)]="username" [disabled]="usernamdi"  placeholder="Vui lòng nhập tên đăng nhập" (ngModelChange)="usernamec=checkerror(username,usernamec);buttonc=checkbutton(buttonc);" (focusout)="checkusername(username);"></td>
+                    <td class="errortable">    
+                        <fa-icon *ngIf="usernamec==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="usernamec==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Ngày Sinh:</th>
+                    <td >
+                        <input type="date"  value="" [(ngModel)]="ngaysinh"   
+                        (ngModelChange)="kiemtradate();buttonc=checkbutton(buttonc);"> 
+                    </td>  
+                    <td class="errortable">    
+                        <fa-icon *ngIf="ngaysinhc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="ngaysinhc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr *ngIf="iduser==0">
+                    <th>Vai Trò:</th>
+                 <td >
+                        <select  [(ngModel)]="vaitro" (ngModelChange)="vaitroc=checkcombox(vaitro,vaitroc);buttonc=checkbutton(buttonc);" >
+                            <option class="dropdown-item" disabled selected="true" value="undefined">Vui lòng chọn vai trò</option>
+                            <option *ngFor="let Vaitro of Vaitro"  [ngValue]="Vaitro.id" >{{Vaitro.tenVaiTro}}</option>
+                        </select> 
+                       
+                    </td>
+                    <td class="errortable">    
+                        <fa-icon *ngIf="vaitroc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="vaitroc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr *ngIf="iduser==0">
+                    <th>Hệ Thống:</th>
+                    <td>
+                            <select [(ngModel)]="hethong"  (ngModelChange)="hethongc=checkcombox(hethong,hethongc);buttonc=checkbutton(buttonc);" >
+                                <option class="dropdown-item" disabled selected value="undefined">Vui lòng chọn hệ thống</option>
+                                <option  *ngFor="let HeThong of HeThong" [ngValue]="HeThong.id" >{{HeThong.tenHeThong}}</option>
+                            </select>
+                    </td>  
+                    <td class="errortable">    
+                        <fa-icon *ngIf="hethongc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="hethongc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tên Công Ty:</th>
+                    <td >
+                        <input type="text"  value="" [(ngModel)]="tencongty"  placeholder="Vui lòng nhập tên công ty " (ngModelChange)="tencongtyc=checkerror(tencongty,tencongtyc);buttonc=checkbutton(buttonc);"> 
+                    </td>  
+                    <td class="errortable">    
+                        <fa-icon *ngIf="tencongtyc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="tencongtyc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Chức Danh:</th>
+                    <td >
+                        <input type="text"  value="" [(ngModel)]="chucdanh"  placeholder="Vui lòng nhập chức vụ công tác " (ngModelChange)="chucdanhc=checkerror(chucdanh,chucdanhc);buttonc=checkbutton(buttonc);"> 
+                    </td>  
+                    <td class="errortable">    
+                        <fa-icon *ngIf="chucdanhc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="chucdanhc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr *ngIf="iduser==0">
+                    <th>Mật khẩu:</th>
+                    <td><input type="password"  value="" [(ngModel)]="password"  placeholder="Vui lòng nhập mật khẩu " (ngModelChange)="passwordc=checkerror(password,passwordc);buttonc=checkbutton(buttonc);"></td>
+                    <td class="errortable">    
+                        <fa-icon *ngIf="passwordc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="passwordc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr *ngIf="iduser==0">
+                    <th>Nhập Lại Mật Khẩu:</th>
+                    <td><input type="password" [(ngModel)]="passwordagain" value="" placeholder="Vui lòng nhập lại mật khẩu" (ngModelChange)="passwordagainc=checkpassagain(passwordagain,passwordagainc,password);
+                        buttonc=checkbutton(buttonc);"></td>
+                    <td class="errortable">    
+                        <fa-icon *ngIf="passwordagainc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="passwordagainc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr *ngIf="iduser!=0">
+                    <th></th>
+                    <td colspan="2" class="submittable">
+                        <input *ngIf="iduser!=0"  type="submit" value="Reset mật khẩu" (click)="resetpass();">
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="2" class="submittable">
+                        <input *ngIf="iduser==0" [disabled]="buttonc"  type="submit" value="Đăng Ký" (click)="dangky();">
+                        <input *ngIf="iduser!=0"  type="submit" value="Cập nhật" (click)="capnhat();">
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+</div>

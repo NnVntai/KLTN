@@ -1,0 +1,48 @@
+<app-navbar ></app-navbar>
+<div class="body"  >
+    <app-menu ></app-menu>  
+    <div class="table_show">
+            <div class="header_content">
+                <label>Quản Lý hệ thống đánh giá đã tích hợp</label>
+            </div>
+            <div class="tool">
+                <div class="box-search">
+                   <label>Tìm Kiếm </label> <input class="search" type="text" [(ngModel)]="sreach" (ngModelChange)="Search();" placeholder="Tìm kiếm hệ thống ">
+                </div>
+                <div class="toolss"> 
+                    <button mat-fab (click)="deletesys()"> <fa-icon [icon]="faTrash"></fa-icon></button>
+                    <button  mat-fab (click)="Addsys(!exittable);" class="add"><fa-icon [icon]="faPlus"></fa-icon></button>
+                </div>
+            </div>
+            <table class="list-table" border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>  
+                        <th  width="1%"><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></th>
+                         <th width="2%"(click)="sort('i')">STT&nbsp; <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="10%"(click)="sort('tenHeThong')">Tên Hệ Thống &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="15%"(click)="sort('maKetNoi')">Mã Kết nối &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="15%"(click)="sort('ipHeThong')">Địa Chỉ Máy chủ &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                         <th width="1%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let htarr of Hethong | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p}; let i=index;" >
+                        <td><input type="checkbox" value="{{htarr.id}}" [(ngModel)]="Hethong[i].checked"></td>
+                        <td>{{(i+1)}}</td>
+                        <td>{{htarr.tenHeThong}}</td>
+                        <td>{{htarr.maKetNoi}}</td>
+                        <td>{{htarr.ipHeThong}}</td>
+                        <td (click)="openupdate(htarr.id);"><fa-icon [icon]="faPencil"></fa-icon></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <td colspan="10">
+                            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                    </td>
+                </tfoot>
+                
+            </table>
+    </div>
+</div>
+
+<app-addsys></app-addsys>

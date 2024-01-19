@@ -1,0 +1,45 @@
+
+<app-navbar ></app-navbar>
+<div class="body"  >
+    <app-menu ></app-menu>  
+    <div class="table_show">
+        <div class="header_content"> 
+            <label>Danh sách người đánh giá của hệ thống: {{nameHT}}</label>
+        </div>
+        <div class="tool">
+            <div class="box-search">
+                  <label>Tìm Kiếm </label> <input class="search" type="text" [(ngModel)]="sreach" (ngModelChange)="Search();" placeholder="vui long search">
+            </div>
+            <div class="toolss"> 
+                <button  (click)="deleteuser()" > <fa-icon [icon]="faTrash"></fa-icon></button>
+                <button (click)="exportExcel()"> <fa-icon [icon]="faFileExcel"></fa-icon></button>
+            </div>
+        </div>
+        <table class="list-table" border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>  
+                    <th  width="1%"><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></th>
+                     <th width="1%"(click)="sort('i')">STT&nbsp; <fa-icon [icon]="faSort"></fa-icon></th>
+                     <th width="1%"(click)="sort('hoTen')">Tên Người Dánh Giá &nbsp; <fa-icon [icon]="faSort"></fa-icon></th>
+                    <th  width="1%"(click)="sort('ngayDanhGia')">Mã User &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                    <th  width="1%" >Chức Năng đã Đánh giá</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let listnguoidungarr of listnguoidung | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p}; let i=index;" >
+                    <td><input type="checkbox" value="{{listnguoidungarr.id}}" [(ngModel)]="listnguoidung[i].checked"></td>
+                    <td>{{(i+1)}}</td>
+                    <td>{{listnguoidungarr.hoTen}}</td>
+                    <td>{{listnguoidungarr.maUser}}</td>
+                    <td>{{listnguoidungarr.DanhGia.length}}/{{chucnang.length}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td colspan="10">
+                        <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                </td>
+            </tfoot>
+            
+        </table>
+</div>
+</div>

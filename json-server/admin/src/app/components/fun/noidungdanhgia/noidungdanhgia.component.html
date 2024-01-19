@@ -1,0 +1,50 @@
+<app-navbar ></app-navbar>
+<div class="body"  >
+   <app-menu></app-menu>
+    <div class="table_show">
+            <div class="header_content">
+                <label>Quản Lý Nội Dung Đánh Giá  Hệ Thống: {{nameHT}}</label>
+            </div>  
+            <div class="tool">
+                <div class="box-search">
+                    <label>Tìm Kiếm </label> <input class="search" type="text" [(ngModel)]="sreach" (ngModelChange)="Search();" placeholder="vui long search">
+                </div>
+                <div class="toolss"> 
+                    <button mat-fab color="primary" (click)="deleteNoiDung()" > <fa-icon [icon]="faTrash"></fa-icon></button>
+                    <button mat-fab (click)="AddNoiDung(!exittable);" class="add"><fa-icon [icon]="faPlus"></fa-icon></button>
+                </div>
+            </div>
+            <table class="list-table" border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>  
+                        <th  width="1%"><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></th>
+                        <th width="1%"(click)="sort('i')">STT&nbsp; <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="15%"(click)="sort('mucDoUuTien')">Mức độ ưu tiên&nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="15%"(click)="sort('tenDanhGia')">Tên đánh giá &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="10%"(click)="sort('idKieuDanhGia')">Loại đánh giá &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                         <th width="1%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let noidungdanhgiaarr of noidungdanhgia | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p}; let i=index;" >
+                        <td><input type="checkbox" value="{{noidungdanhgiaarr.id}}" [(ngModel)]="noidungdanhgia[i].checked"></td>
+                        <td>{{(i+1)}}</td>
+                        <td>{{noidungdanhgiaarr.mucDoUuTien}}</td>
+                        <td>{{noidungdanhgiaarr.tenDanhGia}}</td>
+                        <td>{{noidungdanhgiaarr.kieuDanhGia[0].tenKieuDanhGia}}</td>
+                    
+                        <td (click)="openupdate(noidungdanhgiaarr.id);"><fa-icon [icon]="faPencil"></fa-icon></td>
+
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <td colspan="10">
+                            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                    </td>
+                </tfoot>
+                
+            </table>
+    </div>
+</div>
+
+<app-addnoidungdanhgia></app-addnoidungdanhgia>

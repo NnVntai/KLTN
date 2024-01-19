@@ -1,0 +1,66 @@
+<app-navbar ></app-navbar>
+<div class="body"  >
+    <app-menu ></app-menu>  
+    <div class="table_show">
+            <div class="header_content">
+                <label>Thông Tin Tài Khoản</label>
+            </div>
+            <div class="tablechangepass">
+                <table>
+                    <tr>
+                        <th >Họ tên :</th>
+                        <td width="60%"><input type="text"  value="" [(ngModel)]="name"   placeholder="Vui lòng nhập họ tên" (ngModelChange)="namec=checkerror(name,namec);"></td>
+                        <td width="10%" class="errortable" >    
+                            <fa-icon *ngIf="namec==2" [icon]="faTimesCircle"></fa-icon>
+                            <fa-icon *ngIf="namec==1" class="checkok" [icon]="faCheck"></fa-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tên đăng nhập:</th>
+                        <td><input type="text" value="" [(ngModel)]="username" [disabled]="usernamdi"  placeholder="Vui lòng nhập tên đăng nhập" (ngModelChange)="usernamec=checkerror(username,usernamec);" ></td>
+                        <td class="errortable">    
+                            <fa-icon *ngIf="usernamec==2" [icon]="faTimesCircle"></fa-icon>
+                            <fa-icon *ngIf="usernamec==1" class="checkok" [icon]="faCheck"></fa-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Ngày Sinh:</th>
+                        <td >
+                            <input type="date"  value="" [(ngModel)]="ngaysinh"   
+                            (ngModelChange)="kiemtradate();"> 
+                        </td>  
+                        <td class="errortable">    
+                            <fa-icon *ngIf="ngaysinhc==2" [icon]="faTimesCircle"></fa-icon>
+                            <fa-icon *ngIf="ngaysinhc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Tên Công Ty:</th>
+                        <td >
+                            <input type="text"  value="" [(ngModel)]="tencongty"  placeholder="Vui lòng nhập tên công ty " (ngModelChange)="tencongtyc=checkerror(tencongty,tencongtyc);"> 
+                        </td>  
+                        <td class="errortable">    
+                            <fa-icon *ngIf="tencongtyc==2" [icon]="faTimesCircle"></fa-icon>
+                            <fa-icon *ngIf="tencongtyc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Chức Danh:</th>
+                        <td >
+                            <input type="text"  value="" [(ngModel)]="chucdanh"  placeholder="Vui lòng nhập chức vụ công tác " (ngModelChange)="chucdanhc=checkerror(chucdanh,chucdanhc);"> 
+                        </td>  
+                        <td class="errortable">    
+                            <fa-icon *ngIf="chucdanhc==2" [icon]="faTimesCircle"></fa-icon>
+                            <fa-icon *ngIf="chucdanhc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td colspan="2" class="submittable">
+                            <input  type="submit" value="Cập nhật thông tin" (click)="capnhat();">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+</div>

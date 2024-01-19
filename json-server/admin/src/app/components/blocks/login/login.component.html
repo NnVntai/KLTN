@@ -1,0 +1,17 @@
+
+    <div class="fm_login"  (keyup.enter)="onSubmit()">
+        <div class="lable_login">
+            <p>Đăng nhập</p>
+        </div>
+        <div class="input_login">
+            <label class="labels">Tên đăng nhập: </label> 
+            <input type="text" name="username" placeholder="Tên đăng nhập" [(ngModel)]="username" class="username">
+            <label class="labels">Mật khẩu : </label> 
+            <input type="password" name="password" placeholder="Password"  [(ngModel)]="password"  class="password">
+            <label class="err" >{{error}}</label>
+        </div>
+        <div class="button_send">
+            <input  value="Đăng Nhập" type="submit"  (click)="onSubmit()" class="default_btn" />
+        </div>
+    </div>
+

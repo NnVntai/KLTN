@@ -1,0 +1,8 @@
+
+<div class="slider" #myDOMElement id="myDOMElement">
+    <ul *ngFor="let Chucnangarr of list;let i=index;"  >
+        <li>
+            <div (click)="click(i)"  [ngClass]="('button '+ (list[i] ? 'click' : ''))" ></div>
+        </li>
+    </ul>
+</div>

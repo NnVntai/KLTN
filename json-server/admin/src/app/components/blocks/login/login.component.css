@@ -1,0 +1,64 @@
+.fm_login{
+    width: 600px;
+    height: 600px;
+    border: 3px solid rgb(199, 196, 196);
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+}
+.lable_login{
+    text-align: center;
+    width: 100%;
+    height: 90px;
+    font-size: 40px;
+}
+.input_login{
+    margin: auto;
+    width: 400px;
+    height: 200px;
+}
+.input_login input{
+    width: 400px;
+    height: 50px;
+    font-size: 30px;
+    margin-top: 5px;
+    border-radius: 7px;
+    border: 3px solid #ccc;
+}
+.input_login label{
+    height: 60px;
+    font-size: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.input_login .err{
+    color: red;
+    width: 100%;
+    height:70px;
+    font-size: 25px;
+}
+.button_send{
+    margin-top:50px;
+    width: 200px;
+    height: 50px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.button_send input{
+    width: 200px;
+    height: 50px;
+    border: 2px solid rgb(117, 14, 14);
+    background: rgb(3, 3, 68);
+    color: white;
+    border-radius: 5px;
+    font-size:30px;
+}
+.button_send input:hover{
+    border: 2px solid rgb(238, 196, 196);
+    background: rgb(245, 245, 248);
+    color: rgb(24, 2, 2);
+}

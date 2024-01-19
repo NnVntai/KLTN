@@ -1,0 +1,42 @@
+{
+  "custom": [
+    {
+      "id": 1,
+      "name": "a",
+      "rate": "",
+      "id_user": "",
+      "note": "",
+      "title": ""
+    },
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    }
+  ],
+  "rate": [
+    {
+      "id": 0,
+      "user_id": "hello",
+      "quyen": "nv01",
+      "func": "thanh toan"
+    },
+    {
+      "user_id": "sss",
+      "quyen": "nv02",
+      "func": "dat hang",
+      "id": 1
+    },
+    {
+      "user_id": "sd",
+      "quyen": "nhan vien",
+      "func": "dsds",
+      "rate_tienit": "2",
+      "rate_khoahoc1": "2",
+      "rate_khoahoc2": "3",
+      "txt_": "",
+      "id": 2
+    }
+  ]
+}

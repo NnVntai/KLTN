@@ -1,0 +1,9 @@
+<div *ngIf="primss" class="chart-container">   
+    <!-- <div>
+        <select  class="chooseyear"  [(ngModel)]="getyear" (change)="selectOption()" >
+            <option  *ngFor="let yearId of yearId" [selected]="yearId==getyear"  [ngValue]="yearId">năm {{yearId}}</option>
+        </select>
+    </div> -->
+    <button (click)="Print()">Print</button>
+    <canvas  id="MyCharts" >{{ chart }}</canvas>
+</div>

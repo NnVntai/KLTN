@@ -1,0 +1,46 @@
+<app-navbar ></app-navbar>
+<div class="body"  >
+   <app-menu></app-menu>
+    <div class="table_show">
+            <div class="header_content">
+                <label>Quản Lý Vai Trò Người Dùng </label>
+            </div>  
+            <div class="tool">
+                <div class="box-search">
+                    <label>Tìm Kiếm </label> <input class="search" type="text" [(ngModel)]="sreach" (ngModelChange)="Search();" placeholder="vui long search">
+                </div>
+                <div class="toolss"> 
+                    <button mat-fab color="primary" (click)="deleteVaiTro()" > <fa-icon [icon]="faTrash"></fa-icon></button>
+                    <button mat-fab (click)="addVaiTro(!exittable);" class="add"><fa-icon [icon]="faPlus"></fa-icon></button>
+                </div>
+            </div>
+            <table class="list-table" border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>  
+                        <th  width="1%"><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></th>
+                        <th width="1%"(click)="sort('i')">STT&nbsp; <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="15%"(click)="sort('')">Mã Vai trò &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="15%"(click)="sort('tenVaiTro')">Tên Vai trò &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th width="1%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let VaiTroarr of VaiTro | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p}; let i=index;" >
+                        <td><input type="checkbox" value="{{VaiTroarr.id}}" [(ngModel)]="VaiTro[i].checked"></td>
+                        <td>{{(i+1)}}</td>
+                        <td>{{VaiTroarr.id}}</td>
+                        <td>{{VaiTroarr.tenVaiTro}}</td>
+                        <td (click)="openupdate(VaiTroarr.id);"><fa-icon [icon]="faPencil"></fa-icon></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <td colspan="10">
+                            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                    </td>
+                </tfoot>
+                
+            </table>
+    </div>
+</div>
+
+<app-add-vaitro></app-add-vaitro>

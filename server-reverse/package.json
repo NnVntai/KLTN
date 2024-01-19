@@ -1,0 +1,26 @@
+{
+  "name": "server-revese",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "nodemon index"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apicache": "^1.6.3",
+    "body-parser": "^1.20.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "helmet": "^6.0.1",
+    "ip": "^1.1.8",
+    "morgan": "^1.10.0",
+    "needle": "^3.2.0",
+    "nodemon": "^2.0.20",
+    "request-ip": "^3.3.0"
+  }
+}

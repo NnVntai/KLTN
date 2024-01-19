@@ -1,0 +1,132 @@
+.tableadd{
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0,0,0,0.4);
+}
+.table
+{
+    top:5%;
+    width: 100%;
+    height: 90%;
+    background-color: white;
+    border-radius: 20px;
+    border: 2px solid blue;
+}
+.outtable{
+    top:5%;
+    width: 70%;
+    height: 95%;
+    position: absolute;
+    transform: translateY(-40%);
+    transform: translateX(23%);
+}
+.headertable{
+    width: 100%;
+    text-align: center;
+}
+.headertable button{
+    background: rgb(255, 255, 255);
+    color: rgb(0, 5, 8);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
+    float: right;
+    width: 40px;
+    font-size: 20px;
+    height: 40px;
+    margin-top: 5px;
+    margin-right: 5px;
+    transition: 1000ms;
+}
+.headertable button:hover{
+    background-color: rgb(56, 47, 134);
+    color: rgb(223, 229, 233);
+    border: 1px solid rgb(241, 132, 132);
+}
+.headertable .text-header {
+    margin-top: 20px;
+    margin-left: 50px;
+    width: 85%;
+    float: left;
+    text-align: left;
+    word-wrap: break-word;
+    font-size: 25px;
+    color: rgb(12, 20, 27);
+    border-bottom: 5px solid green ;
+    transition: 1000ms;
+}
+.headertable .text-header:hover{
+    border-bottom: 5px solid rgb(56, 106, 245) ;
+    transition: 1000ms;
+}
+.bodytable{
+    width: 100%;
+}
+/* .bodytable tr {
+    height: 80px;
+}
+.bodytable th{
+    float: left;
+    line-height: 80px;
+    font-size: 25px;
+    margin-left:30px ;
+}
+.bodytable input[type="text"] 
+{
+    border: 3px solid green;
+    width: 100%;
+    height: 50px;
+    font-size: 30px; 
+    border-radius: 10px;
+}
+.bodytable input[type="password"] 
+{
+    border: 3px solid green;
+    width: 100%;
+    height: 50px;
+    font-size: 30px; 
+    border-radius: 10px;
+}
+.bodytable select
+{
+    border: 3px solid green;
+    width: 102%;
+    height: 58px;
+    font-size: 30px; 
+    border-radius: 10px;
+}
+.errortable{
+   text-align: center;
+   color: red;
+   font-size: 30px;
+}
+.checkok{
+    color: green;
+}
+.submittable input[type="submit"]:disabled{
+    width: 50%;
+    height: 50px;
+    font-size: 30px;
+    color: green;
+    border-radius: 10px;
+    /* border: 2px solid green; */
+    /* background-color: white;
+} */
+/* .submittable input[type="submit"]:enabled {
+    width: 50%;
+    height: 50px;
+    font-size: 30px;
+    color: green;
+    border-radius: 10px;
+    border: 2px solid green;
+    background-color: white;
+}
+.ngaunhien{
+  
+    font-size: 30px;
+} */

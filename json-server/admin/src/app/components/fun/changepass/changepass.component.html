@@ -1,0 +1,45 @@
+<app-navbar ></app-navbar>
+
+<div class="body"  >
+    <app-menu ></app-menu>  
+    
+    <div class="table_show">
+            <div class="header_content">
+                <label>Thay đổi mật khẩu</label>
+            </div>
+            <div class="tablechangepass">
+                <table>
+                    <tr>
+                        <th >Nhập mật khẩu cũ:</th>
+                        <td width="60%"><input type="password"  value="" [(ngModel)]="passwordo"   placeholder="Vui lòng nhập mật khẩu cũ" (ngModelChange)="passwordoc=checkerror(passwordo,passwordoc);"></td>
+                        <td width="10%" class="errortable" >    
+                            <fa-icon *ngIf="passwordoc==2" [icon]="faTimesCircle"></fa-icon>
+                            <fa-icon *ngIf="passwordoc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th >Nhập mật khẩu mới:</th>
+                        <td width="60%"><input type="password"  value="" [(ngModel)]="password"   placeholder="vui lòng nhập mật khẩu mới " (ngModelChange)="passwordc=checkerror(password,passwordc);buttonc=checkbutton(buttonc);"></td>
+                        <td width="10%" class="errortable" >    
+                            <fa-icon *ngIf="passwordc==2" [icon]="faTimesCircle"></fa-icon>
+                            <fa-icon *ngIf="passwordc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th >Nhập lại mật khẩu mới:</th>
+                        <td width="60%"><input type="password"  value="" [(ngModel)]="passworda"   placeholder="Nhập lại mật khẩu mới" (ngModelChange)="passwordac=checkpassagain(passworda,passwordac,password);buttonc=checkbutton(buttonc);"></td>
+                        <td width="10%" class="errortable" >    
+                            <fa-icon *ngIf="passwordac==2" [icon]="faTimesCircle"></fa-icon>
+                            <fa-icon *ngIf="passwordac==1" class="checkok" [icon]="faCheck"></fa-icon>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td colspan="2" class="submittable">
+                            <input  [disabled]="buttonc"  type="submit" value="Đổi mật khẩu " (click)="changepass();">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+</div>

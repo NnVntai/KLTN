@@ -1,0 +1,14 @@
+<div class="silebar" *ngIf="showmenu" >
+    <div class="label-silebar"> <label>Menu</label></div>
+    <ul>
+        <li [routerLink]="['/function/changepassword']"><a>Thay đổi Password</a></li>
+        <li *ngIf="permissionUser" [routerLink]="['/function/xemdanhgia']" ><a>Quản Lý Đánh giá</a></li>
+        <li *ngIf="permissionQT" [routerLink]="['/function/quanlyhethong']" ><a>Quản lý Hệ thống</a> </li>
+        <li *ngIf="permissionUser" [routerLink]="['/function/quanlychucnang']" ><a>Quản lý Chức năng</a></li>
+        <li *ngIf="permissionQT" [routerLink]="['/function/quanlynguoidung']" ><a>Quản lý Người dùng</a> </li>
+        <li *ngIf="permissionUser" [routerLink]="['/function/noidungdanhgia']" ><a>Quản lý Nội dung đánh giá</a> </li>
+        <li *ngIf="permissionQT" [routerLink]="['/function/vaitro']" ><a>Quản lý Vai trò </a> </li>
+        <li *ngIf="permissionQT" [routerLink]="['/function/kieudanhgia']" ><a>Quản lý Kiểu đánh giá </a> </li>
+        <li *ngIf="permissionUser" [routerLink]="['/function/quanlynguoidanhgia']" ><a>Quản lý Người đánh giá </a> </li>
+    </ul>
+</div>

@@ -1,0 +1,12 @@
+<div  *ngIf="tableopen" class="tableadd">
+    <div class="outtable" id="myDiv" #myDiv>
+        <div class="table">
+            <div class="headertable">
+                <div class="text-header">Hệ Thống Đánh Giá Phẩn mềm</div>
+                 <button (click)="closetable()">X</button>
+            </div>
+            <app-listfun></app-listfun>
+            <app-slider></app-slider>
+        </div>
+    </div>
+</div>

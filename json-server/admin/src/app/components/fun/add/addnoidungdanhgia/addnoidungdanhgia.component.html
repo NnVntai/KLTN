@@ -1,0 +1,55 @@
+<div *ngIf="exittable" class="tableadd">
+    <div class="outtable">
+        <div class="table">
+            <div class="headertable">
+                <h1 *ngIf="idNoiDungDanhGia==0">Thêm nội dung đánh giá  <button (click)="outtable();">X</button></h1>
+                <h1 *ngIf="idNoiDungDanhGia!=0">Cập nhật nội dung đánh giá <button (click)="outtable();">X</button></h1>
+            </div>
+            <table class="bodytable">
+                <tr>
+                    <th>Mức Độ Ưu Tiên:</th>
+                    <td><input type="number" value="" [(ngModel)]="mucdouutien"  placeholder="Vui lòng nhập số ưu tiên" 
+                        (ngModelChange)="mucdouutienc=checkerror(mucdouutien,mucdouutienc);buttonc=checkbutton(buttonc);" 
+                         ></td>
+                    <td class="errortable">    
+                        <fa-icon *ngIf="mucdouutienc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="mucdouutienc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Kiểu Đánh Giá</th>
+                    <td>
+                        <select  [(ngModel)]="idkieudanhgia" (ngModelChange)="kieudanhgiac=checkerror(idkieudanhgia,kieudanhgiac);buttonc=checkbutton(buttonc);" >
+                            <option class="dropdown-item" disabled selected="true" value="undefined">Vui lòng chọn vai trò</option>
+                            <option *ngFor="let KieuDanhGia of KieuDanhGia"  [ngValue]="KieuDanhGia.id" >{{KieuDanhGia.tenKieuDanhGia}}</option>
+                        </select> 
+                    </td>
+                    <td class="errortable">  
+                        <fa-icon *ngIf="kieudanhgiac==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="kieudanhgiac==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Tên Đánh Giá</th>
+                    <td>
+                        <input type="text" value="" [(ngModel)]="tendanhgia"  
+                        placeholder="Vui lòng nhập tên đánh giá chi tiết" 
+                        (ngModelChange)="tendanhgiac=checkerrors(tendanhgia,tendanhgiac);buttonc=checkbutton(buttonc);" >
+                    </td>
+                    <td class="errortable">  
+                        <fa-icon *ngIf="tendanhgiac==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="tendanhgiac==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="2" class="submittable">
+                        <input *ngIf="idNoiDungDanhGia==0" [disabled]="buttonc"  type="submit" value="Thêm " (click)="dangky();">
+                        <input *ngIf="idNoiDungDanhGia!=0"  type="submit" value="Cập nhật" (click)="capnhat();">
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+</div>

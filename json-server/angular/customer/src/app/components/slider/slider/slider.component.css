@@ -1,0 +1,27 @@
+.slider{
+    top:80%;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+}
+.slider ul {
+    width: 150px;
+   margin: auto;
+}
+.slider ul li{
+    float: left;
+    list-style: none;
+}
+.slider ul li .button{
+    background: rgb(128, 135, 241);
+    width: 15px;
+    height: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border: 1px solid rgb(112, 86, 86) ;
+    border-radius: 5px;
+}
+.slider ul li .click{
+    background: rgb(2, 18, 236);
+    width: 30px;
+}

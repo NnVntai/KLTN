@@ -1,0 +1,51 @@
+<app-navbar ></app-navbar>
+<div class="body"  >
+   <app-menu></app-menu>
+    <div class="table_show">
+            <div class="header_content">
+                <label>Quản Lý Tài khoản</label>
+            </div>
+            <div class="tool">
+                <div class="box-search">
+                   <label>Tìm Kiếm </label> <input class="search" type="text" [(ngModel)]="sreach" (ngModelChange)="Search();" placeholder="vui long search">
+                </div>
+                <div class="toolss"> 
+                    <button mat-fab color="primary" (click)="deleteuser()" > <fa-icon [icon]="faTrash"></fa-icon></button>
+                    <button mat-fab (click)="AddUser(!exittable);" class="add"><fa-icon [icon]="faPlus"></fa-icon></button>
+                </div>
+            </div>
+            <table class="list-table" border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>  
+                        <th  width="1%"><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></th>
+                         <th width="1%"(click)="sort('i')">STT&nbsp; <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="15%"(click)="sort('hoTen')">Tên&nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="10%"(click)="sort('idVaiTro')">Quyền &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="10%"(click)="sort('username')">UserName&nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                         <th width="10%">Hệ Thống Quản Lý</th>
+                         <th width="10%">Tên Công ty</th>
+                         <th width="1%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let userarr of userQT | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p}; let i=index;" >
+                        <td><input type="checkbox" value="{{userarr.id}}" [(ngModel)]="userQT[i].checked"></td>
+                        <td>{{(i+1)}}</td>
+                        <td>{{userarr.hoTen}}</td>
+                        <td>{{userarr.VaiTro[0].tenVaiTro}}</td>
+                        <td>{{userarr.username}}</td>
+                        <td>{{userarr.HeThong[0].tenHeThong}}</td>
+                        <td>{{userarr.tenCongTy}}</td>
+                        <td (click)="openupdate(userarr.id);"><fa-icon [icon]="faPencil"></fa-icon></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <td colspan="10">
+                            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                    </td>
+                </tfoot>
+                
+            </table>
+    </div>
+</div>
+<app-add-user></app-add-user>  

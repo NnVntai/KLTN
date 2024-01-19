@@ -1,0 +1,43 @@
+<div *ngIf="exittable" class="tableadd">
+    <div class="outtable">
+        <div class="table">
+            <div class="headertable">
+                <h1 *ngIf="idHT==0">Thêm hệ thống mới   <button (click)="outtable();">X</button></h1>
+                <h1 *ngIf="idHT!=0">Cập nhật hệ thống  <button (click)="outtable();">X</button></h1>
+            </div>
+            <table class="bodytable">
+                <tr>
+                    <th>Tên hệ thống:</th>
+                    <td><input type="text" value="" [(ngModel)]="username"  placeholder="Vui lòng nhập tên đăng nhập" (ngModelChange)="usernamec=checkerror(username,usernamec);buttonc=checkbutton(buttonc);" ></td>
+                    <td class="errortable">    
+                        <fa-icon *ngIf="usernamec==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="usernamec==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Mã kết nối</th>
+                    <td><input type="text" value="" [(ngModel)]="maketnoi"  placeholder="Vui lòng nhập mã kết nối" (ngModelChange)="buttonc=checkbutton(buttonc);" ></td>
+                    <td class="errortable">  
+                        <button class="ngaunhien" (click)="maketnoi=makeid(50)">Ngẫu Nhiên</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Địa Chỉ Hệ Thống</th>
+                    <td><input type="text" value="" [(ngModel)]="ipHeThong"  placeholder="Vui lòng nhập địa chỉ hệ thống" (ngModelChange)="buttonc=checkbutton(buttonc);ipHeThongc=checkerror(ipHeThong,ipHeThongc);" ></td>
+                    <td class="errortable">  
+                        <fa-icon *ngIf="ipHeThongc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="ipHeThongc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="2" class="submittable">
+                        <input *ngIf="idHT==0" [disabled]="buttonc"  type="submit" value="Đăng Ký" (click)="dangky();">
+                        <input *ngIf="idHT!=0"  type="submit" value="Cập nhật" (click)="capnhat();">
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+</div>

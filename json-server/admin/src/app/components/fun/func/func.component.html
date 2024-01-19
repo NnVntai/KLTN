@@ -1,0 +1,44 @@
+<app-navbar ></app-navbar>
+<div class="body"  >
+    <app-menu ></app-menu>  
+    <div class="table_show">
+            <div class="header_content">
+                <label>Quản Lý chức năng hệ Thống: {{nameHT}}</label>
+            </div>
+            <div class="tool">
+                <div class="box-search">
+                   <label>Tìm Kiếm </label> <input class="search" type="text" [(ngModel)]="sreach" (ngModelChange)="Search();" placeholder="Tìm kiếm hệ thống">
+                </div>
+                <div class="toolss"> 
+                    <button (click)="deleteFUN()"> <fa-icon [icon]="faTrash"></fa-icon></button>
+                    <button (click)="AddFUN(!exittable);" class="add"><fa-icon [icon]="faPlus"></fa-icon></button>
+                </div>
+            </div>
+            <table class="list-table" border="1" cellspacing="0" cellpadding="5">
+                <thead>
+                    <tr>  
+                        <th  width="1%"><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></th>
+                         <th width="2%"(click)="sort('i')">STT&nbsp; <fa-icon [icon]="faSort"></fa-icon></th>
+                        <th  width="15%"(click)="sort('tenChucNang')">Tên Chức năng &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                         <th width="20%">Mục Đích đánh giá chức năng </th>
+                         <th width="1%"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let Chucnangarr of ChucNang | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p}; let i=index;" >
+                        <td><input type="checkbox" value="{{Chucnangarr.id}}" [(ngModel)]="ChucNang[i].checked"></td>
+                        <td>{{(i+1)}}</td>
+                        <td>{{Chucnangarr.tenChucNang}}</td>
+                        <td>{{Chucnangarr.mucDich}}</td>
+                        <td (click)="openupdate(Chucnangarr.id);"><fa-icon [icon]="faPencil"></fa-icon></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <td colspan="10">
+                            <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                    </td>
+                </tfoot>
+            </table>
+    </div>
+</div>
+<app-addfunc></app-addfunc> 

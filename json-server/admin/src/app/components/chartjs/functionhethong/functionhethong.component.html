@@ -1,0 +1,9 @@
+<div *ngIf="idhethongs!=0" class="chart-container">   
+    <div>
+        <select  class="chooseyear"  [(ngModel)]="getyear" (change)="selectOption()" >
+            <option  *ngFor="let yearId of yearId" [ngValue]="yearId">năm {{yearId}}</option>
+        </select>
+        <button (click)="Print()">Print</button>
+    </div>
+<canvas  id="funhethong" >{{ chart }}</canvas>
+</div>

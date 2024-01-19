@@ -1,0 +1,56 @@
+
+.silebar {
+    width: 350px;
+    float: left;
+    margin-top: 3px;
+    padding: 0;
+    margin-right: 10px;
+    background: #545856;
+    /* background-image:url(https://hoa7ngay.net/wp-content/uploads/2019/04/y-nghia-cua-mau-tim-trong-tinh-yeu-ban-co-biet-1.jpg); */
+  }
+  .silebar a {  
+    width: 100%;
+    height: 50px;
+    margin-left: 20px;
+    text-decoration: none;
+    line-height: 50px;
+    font-size: 20px;
+  }
+  
+
+  .silebar a:hover {
+
+  }
+  
+  .silebar a.active {
+    background-color: #04AA6D;
+    color: white;
+  }
+  .silebar .label-silebar{
+    color: rgb(255, 255, 255);
+    line-height: 50px;
+    width: 100%;
+    font-size: 40px;
+    height: 50px;
+    text-align: center;
+    background: rgb(74, 32, 226);
+}
+.silebar ul{
+  margin-left: -40px;
+  list-style: none;
+  
+}
+.silebar ul li{
+  margin: 0px;
+  background: #545856;
+  color: rgb(250, 248, 248);
+  display: block;
+  border-top: 2px solid rebeccapurple;
+  border-bottom: 2px solid rebeccapurple;
+  text-decoration: none;
+}
+.silebar ul li:hover{
+  color: black;
+  transition: 1000ms;
+  background-color: #ccc;
+}

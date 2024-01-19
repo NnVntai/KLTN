@@ -1,0 +1,26 @@
+<app-navbar ></app-navbar>
+<div class="body"  >
+    <app-menu ></app-menu>  
+    <div class="table_show">
+            <div class="header_content">
+                <label>Home</label>
+            </div>
+            <div *ngIf="showtable" class="list-chart" >
+                <div style="width: 60%; float: left; background: white; margin: 10px;">
+                    <app-chartcolum  [primss]="true"></app-chartcolum>
+                </div>
+                <!-- <app-chartcolum  [primss]="true"></app-chartcolum> -->
+                <div style="width: 30%; float: left; background: white; margin: 10px;">
+                <app-pie [primss]="true"></app-pie>
+                </div>
+            </div>
+            <div *ngIf="!showtable" class="list-chart" >
+                <div style="width: 48%; float: left; background: white; margin: 10px;">
+                <app-functionhethong [idhethongs]="idhethong" ></app-functionhethong>  
+                </div>
+                <div style="width: 48%; float: right; background: white; margin: 10px;">
+                <app-colum [idhethongs]="idhethong" ></app-colum> 
+                </div>
+            </div>
+    </div>
+</div>

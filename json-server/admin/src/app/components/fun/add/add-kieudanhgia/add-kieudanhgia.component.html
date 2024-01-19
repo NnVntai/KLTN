@@ -1,0 +1,33 @@
+
+<div *ngIf="exittable" class="tableadd">
+    <div class="outtable">
+        <div class="table">
+            <div class="headertable">
+                <h1 *ngIf="idKieuDanhGia==0">Thêm Kiểu Đánh Giá  <button (click)="outtable();">X</button></h1>
+                <h1 *ngIf="idKieuDanhGia!=0">Cập nhật Kiểu Đánh Giá <button (click)="outtable();">X</button></h1>
+            </div>
+            <table class="bodytable">
+                <tr>
+                    <th>Tên Kiểu Đánh Giá</th>
+                    <td>
+                        <input type="text" value="" [(ngModel)]="tenKieuDanhGia"  
+                        placeholder="Vui lòng nhập tên vai trò" 
+                        (ngModelChange)="tenKieuDanhGiac=checkerrors(tenKieuDanhGia,tenKieuDanhGiac);buttonc=checkbutton(buttonc);" >
+                    </td>
+                    <td class="errortable">  
+                        <fa-icon *ngIf="tenKieuDanhGiac==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="tenKieuDanhGiac==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="2" class="submittable">
+                        <input *ngIf="idKieuDanhGia==0" [disabled]="buttonc"  type="submit" value="Thêm" (click)="dangky();">
+                        <input *ngIf="idKieuDanhGia!=0"  type="submit" value="Cập nhật" (click)="capnhat();">
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+</div>

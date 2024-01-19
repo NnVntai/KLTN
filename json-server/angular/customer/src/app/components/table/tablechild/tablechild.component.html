@@ -1,0 +1,14 @@
+<div  *ngIf="tableopen" class="tableadd">
+    <div class="outtable">
+        <div class="table">
+            <div class="headertable">
+                <div class="text-header"><div class="showthongbao">{{TXTthongbao}}</div></div>
+                 <button (click)="closetable()" >X</button>
+            </div>
+            <div #childtable>
+                        
+            </div>
+            <app-send [iddanhgia]="iddanhgia"></app-send>
+        </div>
+    </div>
+</div>

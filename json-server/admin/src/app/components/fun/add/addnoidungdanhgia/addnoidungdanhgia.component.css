@@ -1,0 +1,127 @@
+.tableadd{
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0,0,0,0.4);
+}
+.table
+{
+    top:5%;
+    width: 100%;
+
+    background-color: white;
+}
+.outtable{
+    top:5%;
+    width: 50%;
+    height: 95%;
+    position: absolute;
+    transform: translateY(-50%);
+    transform: translateX(50%);
+}
+.headertable{
+    width: 100%;
+    height: 70px;
+    background-color: rgb(18, 99, 99);
+    text-align: center;
+    
+}
+.headertable button{
+    background-color: rgb(18, 99, 99);
+    color: aliceblue;
+    border: none;
+    float: right;
+    width: 60px;
+    font-size: 30px;
+    height: 60px;
+    margin-top: 5px;
+    margin-right: 5px;
+}
+.headertable h1 {   
+    font-size: 40px;
+    color: aliceblue;
+    line-height: 80px;
+}
+.bodytable{
+    width: 100%;
+}
+.bodytable tr {
+    height: 80px;
+}
+.bodytable th{
+    float: left;
+    line-height: 80px;
+    font-size: 25px;
+    margin-left:30px ;
+}
+.bodytable input[type="date"] 
+{
+    border: 3px solid green;
+    width: 100%;
+    height: 50px;
+    font-size: 30px; 
+    border-radius: 10px;
+}
+.bodytable input[type="text"] 
+{
+    border: 3px solid green;
+    width: 100%;
+    height: 50px;
+    font-size: 30px; 
+    border-radius: 10px;
+}
+.bodytable input[type="number"] 
+{
+    border: 3px solid green;
+    width: 100%;
+    height: 50px;
+    font-size: 30px; 
+    border-radius: 10px;
+}
+.bodytable input[type="password"] 
+{
+    border: 3px solid green;
+    width: 100%;
+    height: 50px;
+    font-size: 30px; 
+    border-radius: 10px;
+}
+.bodytable select
+{
+    border: 3px solid green;
+    width: 102%;
+    height: 58px;
+    font-size: 30px; 
+    border-radius: 10px;
+}
+.errortable{
+   text-align: center;
+   color: red;
+   font-size: 30px;
+}
+.checkok{
+    color: green;
+}
+.submittable input[type="submit"]:disabled{
+    width: 50%;
+    height: 50px;
+    font-size: 30px;
+    color: green;
+    border-radius: 10px;
+    /* border: 2px solid green; */
+    background-color: white;
+}
+.submittable input[type="submit"]:enabled {
+    width: 50%;
+    height: 50px;
+    font-size: 30px;
+    color: green;
+    border-radius: 10px;
+    border: 2px solid green;
+    background-color: white;
+}

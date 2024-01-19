@@ -1,0 +1,9 @@
+<diV class="listchucnang" >
+    <div class="showchucnang" id="changelist">
+        <ul *ngFor="let Chucnangarr of chucnang;let i=index;" [style.margin-left]="withd()">
+            <li><div class="button">
+                <app-buttonchucnang  [prop]="Chucnangarr" [stt]="i" ></app-buttonchucnang>
+            </div></li>
+        </ul>
+    </div>
+</diV>

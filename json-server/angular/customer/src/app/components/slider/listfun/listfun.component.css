@@ -1,0 +1,38 @@
+.listchucnang {
+    top:25%;
+    width: 100%;
+    margin: auto;
+    position: absolute;
+}
+.showchucnang{
+    margin: auto;
+    overflow: hidden;
+    margin-right: 50px;
+  
+}
+.listchucnang ul {
+     width: 1000000px;
+     transition: 2000ms;
+}
+.listchucnang ul li{
+    float: left;
+    overflow: hidden;
+    list-style: none;
+}
+.listchucnang ul li .button{
+    width: 308px;
+    height: 350px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 5px;
+}
+.listchucnang ul li .click{
+    width: 30px;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    
+  }
+
+  

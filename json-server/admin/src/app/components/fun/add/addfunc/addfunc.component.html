@@ -1,0 +1,36 @@
+<div *ngIf="exittable" class="tableadd">
+    <div class="outtable">
+        <div class="table">
+            <div class="headertable">
+                <h1 *ngIf="idFUNCTION==0">Thêm chức năng mới   <button (click)="outtable();">X</button></h1>
+                <h1 *ngIf="idFUNCTION!=0">Cập nhật chức năng  <button (click)="outtable();">X</button></h1>
+            </div>
+            <table class="bodytable">
+                <tr>
+                    <th>Tên chức năng:</th>
+                    <td><input type="text" value="" [(ngModel)]="tenchucnang"  placeholder="Vui lòng nhập tên chức năng" (ngModelChange)="tenchucnangc=checkerror(tenchucnang,tenchucnangc);buttonc=checkbutton(buttonc);" (focusout)="checkusername(tenchucnang,maHT);" ></td>
+                    <td class="errortable">    
+                        <fa-icon *ngIf="tenchucnangc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="tenchucnangc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Mục đích</th>
+                    <td><input type="text" value="" [(ngModel)]="mucdich"  placeholder="Vui lòng nhập mục đích đánh giá của chức năng" (ngModelChange)="mucdichc=checkerror(mucdich,mucdichc);buttonc=checkbutton(buttonc);" ></td>
+                    <td class="errortable">  
+                        <fa-icon *ngIf="mucdichc==2" [icon]="faTimesCircle"></fa-icon>
+                        <fa-icon *ngIf="mucdichc==1" class="checkok" [icon]="faCheck"></fa-icon>
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td colspan="2" class="submittable">
+                        <input *ngIf="idFUNCTION==0" [disabled]="buttonc"  type="submit" value="Thêm chức năng" (click)="dangky();">
+                        <input *ngIf="idFUNCTION!=0"  type="submit" value="Cập nhật" (click)="capnhat();">
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+    </div>
+</div>

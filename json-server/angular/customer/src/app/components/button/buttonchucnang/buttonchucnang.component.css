@@ -1,0 +1,75 @@
+.buttonchucnang {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.buttonchucnang button{
+    width: 90%;
+    height: 15%;
+    font-size: 30px;
+    border-radius: 3px;
+    border: 1px solid rgb(26, 27, 26);
+    transition: 1000ms;
+    overflow: hidden;
+}
+.buttonchucnang:hover button{
+    background-color: rgb(135, 138, 98) ;
+}
+.buttonchucnang .mucdich {
+    overflow: hidden;
+    font-size: 20px;
+    width: 100%;
+    height: 40%;
+}
+
+/*  */
+.button{
+
+    vertical-align: middle;
+    width: 80%;
+    height: 100%;
+
+}
+
+.button mat-icon{
+    font-size: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+}
+ .button mat-icon:hover{
+    background: yellow;
+    transition: 1000ms;
+}
+
+.button:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.button:not(:checked) >label {
+    float:right;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:10-0px;
+    color:#ccc;
+}
+
+.button > input:checked ~ label {
+    color: #ffc700; 
+    font-size:40px;
+}
+.button:not(:checked) > label:hover,
+.button:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+    font-size:40px;
+}
+.button > input:checked + label:hover,
+.button > input:checked + label:hover ~ label,
+.button > input:checked ~label:hover,
+.button > input:checked ~ label:hover ~ label,
+.button > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+    font-size: 30px; 
+}

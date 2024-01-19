@@ -1,0 +1,17 @@
+.txtarea {
+    margin: 10px;
+    width: 100%;
+    height: 300px;
+    display: inline-block;
+}
+.txtarea .over {
+    width: 70%;
+    height: 100%;
+    margin: auto;
+}
+.txtarea textarea{
+    font-size: 30px;
+    border: 4px solid rgb(72, 72, 248);
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,72 @@
+.star-button{
+    margin: 10px;
+    width: 100%;
+    height: 7%;
+    display: inline-block;
+}
+.star-button .over-star {
+    
+    width: 70%;
+    margin: auto;
+    height: 100%;
+    border: 3px solid gray;
+}
+.star-button .over-star label.text {
+    background: rgb(243, 214, 177);
+    float: left;
+    padding: 10px;
+    font-size: 30px;
+    width: 40%;
+    overflow: hidden;
+    vertical-align: middle;
+    
+}
+.star-button .over-star .button{
+    padding: 10px;
+    vertical-align: middle;
+    float: left;
+    width: 40%;
+    height: 100%;
+}
+.star-button .over-star .button mat-icon{
+    font-size: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    width: 40px;
+    height: 40px;
+}
+.star-button .over-star .button mat-icon:hover{
+    background: yellow;
+    transition: 1000ms;
+}
+
+.button:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.button:not(:checked) >label {
+    float:right;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:10-0px;
+    color:#ccc;
+}
+
+.button > input:checked ~ label {
+    color: #ffc700; 
+    font-size:40px;
+}
+.button:not(:checked) > label:hover,
+.button:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+    font-size:40px;
+}
+.button > input:checked + label:hover,
+.button > input:checked + label:hover ~ label,
+.button > input:checked ~label:hover,
+.button > input:checked ~ label:hover ~ label,
+.button > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+    font-size: 30px; 
+}

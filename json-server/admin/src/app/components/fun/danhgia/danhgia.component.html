@@ -1,0 +1,50 @@
+<app-navbar ></app-navbar>
+<div class="body"  >
+    <app-menu ></app-menu>  
+    <div class="table_show">
+        <div class="header_content"> 
+            <label>Danh sách đánh giá của hệ thống: {{nameHT}}</label>
+        </div>
+        <div class="tool">
+            <div class="box-search">
+                  <label>Chức năng </label> 
+                    <select  class="search" [(ngModel)]="listchucnang" (ngModelChange)="Search($event);">
+                        <option selected="true"  disabled >Chọn chức năng</option>
+                        <option *ngFor="let listfuntion of chucnang" value="{{listfuntion.id}}">{{listfuntion.tenChucNang}}</option>
+                    </select>
+            </div>
+            <div class="toolss"> 
+                <button  (click)="deleteuser()" > <fa-icon [icon]="faTrash"></fa-icon></button>
+                <button (click)="exportExcel()"> <fa-icon [icon]="faFileExcel"></fa-icon></button>
+            </div>
+        </div>
+        <table class="list-table" border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>  
+                    <th  width="1%"><input type="checkbox" [checked]="isAllCheckBoxChecked()" (change)="checkAllCheckBox($event)"></th>
+                     <th width="1%"(click)="sort('i')">STT&nbsp; <fa-icon [icon]="faSort"></fa-icon></th>
+                     <th width="1%"(click)="sort('hoTen')">Tên Người Dánh Giá &nbsp; <fa-icon [icon]="faSort"></fa-icon></th>
+                    <th  width="1%"(click)="sort('ngayDanhGia')">Ngày Đánh giá &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                    <th  width="1%"(click)="sort('tenChucNang')">tên Chức Năng &nbsp;   <fa-icon [icon]="faSort"></fa-icon></th>
+                     <th *ngFor="let sss of Danhgia[0]?.chiTietDanhGia" width="1%"  >{{ sss.tenDanhGia=='' ? 'Nội Dung Góp Ý Khác' : sss.tenDanhGia}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let Danhgiaarr of Danhgia | orderBy: key: reverse | paginate: {itemsPerPage:10,currentPage:p}; let i=index;" >
+                    <td><input type="checkbox" value="{{Danhgiaarr.id}}" [(ngModel)]="Danhgia[i].checked"></td>
+                    <td>{{(i+1)}}</td>
+                    <td>{{Danhgiaarr.nguoiDanhGia[0].hoTen}}</td>
+                    <td>{{Danhgiaarr.ngayDanhGia}}</td>
+                    <td>{{Danhgiaarr.chucNang[0].tenChucNang}}</td>
+                    <td *ngFor="let ss of Danhgiaarr.chiTietDanhGia">{{ss.ketQuaDanhGia}}</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <td colspan="10">
+                        <pagination-controls (pageChange)="p =$event"></pagination-controls>
+                </td>
+            </tfoot>
+            
+        </table>
+</div>
+</div>
